@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Trudy Painter",
     description: "Creative engineer, building Gizmo",
     type: "website",
-    images: [{ url: "/og-blank.png", width: 1, height: 1 }],
+    images: [{ url: "/og-blank.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary",

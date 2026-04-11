@@ -1,6 +1,7 @@
 import { client } from "@/sanity/client";
 import { allProjectsQuery } from "@/sanity/queries";
-import PhotoScroller from "@/components/PhotoScroller";
+import dynamic from "next/dynamic";
+const PhotoScroller = dynamic(() => import("@/components/PhotoScroller"), { ssr: false });
 import ProjectArchive from "@/components/ProjectArchive";
 
 type Project = {
