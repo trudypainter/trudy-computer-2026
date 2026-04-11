@@ -45,7 +45,7 @@ body {
 main {
   max-width: 640px;
   margin: 0 auto;
-  padding: 0 0 80px;
+  padding: 0 20px 80px;
   transform: scaleX(var(--type-stretch));
   transform-origin: center top;
 }
@@ -135,7 +135,7 @@ code {
 header {
   max-width: 640px;
   margin: 0 auto;
-  padding: 40px 0 40px;
+  padding: 40px 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;

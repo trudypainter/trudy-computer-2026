@@ -11,11 +11,18 @@ export const metadata: Metadata = {
     title: "Trudy Painter",
     description: "Creative engineer, building Gizmo",
     type: "website",
+    images: [],
   },
   twitter: {
     card: "summary",
     title: "Trudy Painter",
     description: "Creative engineer, building Gizmo",
+    images: [],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "none" as any,
   },
 };
 
