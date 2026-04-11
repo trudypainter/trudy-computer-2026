@@ -81,27 +81,15 @@ export default async function Home() {
           MIT Media Lab, CMU, USC, Parsons, and SVA.
         </p>
 
-        <div className="link-matrix">
-          <svg className="matrix-axes" viewBox="0 0 250 250" fill="none">
-            <line x1="125" y1="0" x2="125" y2="250" stroke="darkgray" strokeWidth="1" />
-            <line x1="0" y1="125" x2="250" y2="125" stroke="darkgray" strokeWidth="1" />
-          </svg>
-
-          {/* Quadrant labels */}
-          <div className="matrix-label matrix-label-top">Essential</div>
-          <div className="matrix-label matrix-label-bottom">Peripheral</div>
-          <div className="matrix-label matrix-label-left">Personal</div>
-          <div className="matrix-label matrix-label-right">Professional</div>
-
-          {/* Links positioned in quadrants */}
-          <a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ top: '15%', left: '20%' }}>Are.na</a>
-          <a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ top: '30%', left: '15%' }}>Instagram</a>
-          <a href="https://open.spotify.com/user/trudypaintet?si=ZlW6diDKSl61x9oKhit5BA" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ bottom: '30%', left: '20%' }}>Spotify</a>
-          <a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ top: '25%', right: '20%' }}>X/Twitter</a>
-          <a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ top: '15%', right: '20%' }}>Github</a>
-          <a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ top: '40%', right: '20%' }}>HF</a>
-          <a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer" className="matrix-link" style={{ bottom: '35%', right: '20%' }}>LinkedIn</a>
-        </div>
+        <nav className="link-row">
+          <a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">Are.na</a>
+          <a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">Github</a>
+          <a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">HF</a>
+          <a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </nav>
+        <p className="email-plain">hello@trudy.computer</p>
       </div>
 
       {photos.length > 0 && (

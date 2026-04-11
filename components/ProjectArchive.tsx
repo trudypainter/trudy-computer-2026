@@ -79,7 +79,7 @@ export default function ProjectArchive({
         aria-expanded={open}
       >
         <span className={`archive-chevron ${open ? "open" : ""}`}>&#x25B8;</span>
-        <span>See my {count} project archive.</span>
+        <span>See my {count} project archive</span>
       </button>
       <div className={`archive-content ${open ? "open" : ""}`}>
         <div className={`archive-inner ${open ? "open" : ""}`}>
