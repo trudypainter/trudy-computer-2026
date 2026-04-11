@@ -76,8 +76,6 @@ export default async function Home() {
         <p>
           I studied <a href="https://www.eecs.mit.edu/research/computer-science/" target="_blank" rel="noopener noreferrer">computer science</a> and <a href="https://cmsw.mit.edu/about/" target="_blank" rel="noopener noreferrer">comparative media studies</a> at MIT. I also
           researched <a href="/posts/latent-lab">human/AI collaboration</a> at the MIT Media Lab.
-          I give talks on AI and creative work — I&rsquo;ve spoken at Columbia, the
-          MIT Media Lab, CMU, USC, Parsons, and SVA.
         </p>
 
         <nav className="link-section">
