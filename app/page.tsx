@@ -90,7 +90,7 @@ export default async function Home() {
         </p>
         <p>
           I studied <a href="https://www.eecs.mit.edu/research/computer-science/" target="_blank" rel="noopener noreferrer">computer science</a> and <a href="https://cmsw.mit.edu/about/" target="_blank" rel="noopener noreferrer">comparative media studies</a> at MIT. I also
-          researched <a href="/posts/latent-lab">human/AI collaboration</a> at the MIT Media Lab.
+          published <a href="/posts/latent-lab">AI research</a> through the MIT Media Lab.
         </p>
 
         <table className="contact-table">
