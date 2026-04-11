@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     title: "Trudy Painter",
     description: "Creative engineer, building Gizmo",
     type: "website",
-    images: [],
+    images: [{ url: "/og-blank.png", width: 1, height: 1 }],
   },
   twitter: {
     card: "summary",
     title: "Trudy Painter",
     description: "Creative engineer, building Gizmo",
-    images: [],
+    images: ["/og-blank.png"],
   },
   robots: {
     index: true,
