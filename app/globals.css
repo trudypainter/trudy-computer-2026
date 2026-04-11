@@ -1,0 +1,537 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #1a1a1a;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+a {
+  color: #555;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 1.1em;
+}
+
+h2 {
+  font-size: 1em;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 0.95em;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+ul,
+ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 32px 0;
+}
+
+blockquote {
+  border-left: 2px solid #e0e0e0;
+  padding-left: 16px;
+  color: #555;
+  margin: 16px 0;
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.9em;
+  background: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.mono {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.85em;
+}
+
+/* Header */
+header {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header a:hover {
+  text-decoration: underline;
+  text-decoration-color: #999;
+}
+
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Photo scroller */
+.photo-scroller-section {
+  margin-top: 48px;
+  margin-bottom: 32px;
+}
+
+.photo-scroller-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.photo-scroller-header h2 {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #999;
+  margin: 0;
+}
+
+.photo-scroller-header h2 a {
+  color: #999;
+}
+
+.photo-scroller-via {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.75em;
+  color: #ccc;
+}
+
+.photo-scroller {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.photo-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-scroller a {
+  flex-shrink: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.photo-scroller a:hover {
+  text-decoration: none;
+}
+
+.photo-scroller img {
+  height: 260px;
+  width: 260px;
+  object-fit: cover;
+  max-width: none;
+  margin: 0;
+  border-radius: 3px;
+}
+
+.photo-scroller-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  flex-shrink: 0;
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+/* Archive toggle */
+.archive-section {
+  margin-top: 32px;
+}
+
+.archive-dots {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.archive-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ccc;
+  opacity: 0;
+  animation: dot-appear 0.15s ease forwards;
+}
+
+@keyframes dot-appear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.archive-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.85em;
+  color: #999;
+  padding: 0;
+}
+
+.archive-toggle:hover {
+  color: #555;
+}
+
+.archive-chevron {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 0.9em;
+}
+
+.archive-chevron.open {
+  transform: rotate(90deg);
+}
+
+.archive-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+.archive-content.open {
+  grid-template-rows: 1fr;
+}
+
+.archive-content > * {
+  overflow: hidden;
+  padding-top: 16px;
+}
+
+.archive-fade {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.archive-inner.open .archive-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project list */
+.project-list {
+  list-style: none;
+  padding: 0;
+}
+
+.project-list li {
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.project-list .year-label {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.8em;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.year-group {
+  margin-bottom: 24px;
+}
+
+.year-group h2 {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #999;
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+
+/* Post header */
+.post-header {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 0;
+}
+
+.post-header-left {
+  flex: 1;
+}
+
+.post-header h1 {
+  margin-bottom: 4px;
+}
+
+.post-excerpt {
+  color: #666;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+/* Project meta rows */
+.project-meta {
+  width: 45%;
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 0.85em;
+}
+
+.meta-row {
+  display: flex;
+  align-items: baseline;
+  padding: 4px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.meta-row:first-child {
+  border-top: 1px solid #e8e8e8;
+}
+
+.project-meta dt {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.85em;
+  color: #999;
+  min-width: 72px;
+  padding-right: 16px;
+  flex-shrink: 0;
+}
+
+.project-meta dd {
+  margin: 0;
+}
+
+/* About page */
+.about-content a {
+  text-decoration: underline;
+  text-decoration-color: #ccc;
+  text-underline-offset: 2px;
+}
+
+.about-content a:hover {
+  text-decoration-color: #555;
+}
+
+/* Link matrix */
+.link-matrix {
+  position: relative;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  margin: 32px auto 8px;
+  padding: 16px 32px;
+}
+
+.matrix-axes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.matrix-link {
+  position: absolute;
+  color: #555;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.matrix-link:hover {
+  text-decoration: underline;
+}
+
+.matrix-label {
+  position: absolute;
+  padding: 0 8px;
+  background: white;
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.75em;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.matrix-label-top {
+  width: calc(100% - 64px);
+  left: 32px;
+  text-align: center;
+  top: -8%;
+}
+
+.matrix-label-bottom {
+  width: calc(100% - 64px);
+  left: 32px;
+  text-align: center;
+  bottom: -8%;
+}
+
+.matrix-label-left {
+  left: -20%;
+  top: 47%;
+}
+
+.matrix-label-right {
+  right: -25%;
+  top: 47%;
+}
+
+.profile-image {
+  max-width: 200px;
+  margin-bottom: 24px;
+}
+
+.bio-section h2 {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+/* Embed containers */
+.embed-wrapper {
+  margin: 24px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.embed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.8em;
+}
+
+.embed-label {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  color: #999;
+}
+
+.embed-header a {
+  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  color: #666;
+  font-size: 1em;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.embed-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.tweet-container {
+  padding: 0;
+}
+
+.tweet-container iframe {
+  width: 100%;
+  min-height: 300px;
+  border: none;
+}
+
+.video-caption {
+  font-size: 0.85em;
+  color: #666;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-top: 48px;
+  font-size: 0.9em;
+  color: #999;
+}
