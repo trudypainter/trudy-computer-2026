@@ -5,6 +5,7 @@ import {
   type PortableTextComponents,
   type PortableTextBlock,
 } from "@portabletext/react";
+import Script from "next/script";
 import { urlForImage } from "@/sanity/image";
 
 function extractVideoUrl(asset: any): string {
@@ -157,6 +158,46 @@ const components: PortableTextComponents = {
             <p className="video-caption">{value.caption}</p>
           )}
         </div>
+      );
+    },
+    instagramEmbed: ({ value }) => {
+      if (!value.url) return null;
+      return (
+        <>
+          <Script src="https://www.instagram.com/embed.js" />
+          <div className="embed-wrapper">
+            <div className="embed-header">
+              <span className="embed-label">Instagram</span>
+              <a href={value.url} target="_blank" rel="noopener noreferrer">
+                Open in Instagram ↗
+              </a>
+            </div>
+            <div style={{ padding: "16px", display: "flex", justifyContent: "center" }}>
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink={value.url}
+                data-instgrm-version="14"
+                style={{
+                  background: "#FFF",
+                  border: 0,
+                  borderRadius: "3px",
+                  boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                  margin: "1px",
+                  maxWidth: "540px",
+                  minWidth: "200px",
+                  padding: 0,
+                  width: "100%",
+                }}
+              >
+                <div style={{ padding: "16px" }}>
+                  <a href={value.url} target="_blank" rel="noopener noreferrer">
+                    Loading Instagram content...
+                  </a>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+        </>
       );
     },
     iframeEmbed: ({ value }) => {
