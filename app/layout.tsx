@@ -6,7 +6,17 @@ import ColorDebug from "../components/ColorDebug";
 
 export const metadata: Metadata = {
   title: "Trudy Painter",
-  description: "Software engineer, making AI experiments",
+  description: "Creative engineer, building Gizmo",
+  openGraph: {
+    title: "Trudy Painter",
+    description: "Creative engineer, building Gizmo",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Trudy Painter",
+    description: "Creative engineer, building Gizmo",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +28,7 @@ export default function RootLayout({
     <html lang="en" className={`${diatype.variable} ${diatypeMono.variable}`}>
       <body>
         <header>
-          <Link href="/">Trudy Painter</Link>
+          <Link href="/"><span className="header-icon">⊞</span> Trudy Painter</Link>
         </header>
         <main>{children}</main>
         {/* <ColorDebug /> */}

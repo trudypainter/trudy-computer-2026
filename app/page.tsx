@@ -76,7 +76,7 @@ export default async function Home() {
     <>
       <div className="about-content">
         <p>
-          Hi, I&rsquo;m Trudy. I&rsquo;m a creative technologist in Brooklyn, NY.
+          Hi, I&rsquo;m Trudy. I&rsquo;m a creative engineer in Brooklyn, NY.
           I care about making AI fun + approachable for everyone.
         </p>
         <p>

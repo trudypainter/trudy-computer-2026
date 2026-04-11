@@ -133,6 +133,14 @@ header {
   transform-origin: center top;
 }
 
+.header-icon {
+  font-size: 1.4em;
+  vertical-align: -0.05em;
+  display: inline-block;
+  transform: translateY(-0.5px);
+  margin-right: 0px;
+}
+
 header a {
   text-decoration: none;
 }
