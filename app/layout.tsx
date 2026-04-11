@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { diatype, diatypeMono } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Trudy Painter",
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${diatype.variable} ${diatypeMono.variable}`}>
       <body>
         <header>
           <Link href="/">Trudy Painter</Link>

@@ -7,8 +7,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.55;
   color: #1a1a1a;
@@ -91,7 +91,7 @@ blockquote {
 }
 
 code {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.9em;
   background: #f5f5f5;
   padding: 2px 4px;
@@ -99,7 +99,7 @@ code {
 }
 
 .mono {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.85em;
 }
 
@@ -141,7 +141,7 @@ header nav {
 }
 
 .photo-scroller-header h2 {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.8em;
   font-weight: 400;
   color: #999;
@@ -153,7 +153,7 @@ header nav {
 }
 
 .photo-scroller-via {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.75em;
   color: #ccc;
 }
@@ -200,7 +200,7 @@ header nav {
   justify-content: center;
   min-width: 60px;
   flex-shrink: 0;
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.8em;
   color: #ccc;
 }
@@ -244,7 +244,7 @@ header nav {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.85em;
   color: #999;
   padding: 0;
@@ -305,7 +305,7 @@ header nav {
 }
 
 .project-list .year-label {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.8em;
   color: #999;
   flex-shrink: 0;
@@ -316,7 +316,7 @@ header nav {
 }
 
 .year-group h2 {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.8em;
   font-weight: 400;
   color: #999;
@@ -365,7 +365,7 @@ header nav {
 }
 
 .project-meta dt {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.85em;
   color: #999;
   min-width: 72px;
@@ -388,19 +388,20 @@ header nav {
   text-decoration-color: #555;
 }
 
-/* Link row */
+/* Link section */
+.link-section {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .link-row {
   display: flex;
   gap: 16px;
-  margin-top: 24px;
   flex-wrap: wrap;
 }
 
-.email-plain {
-  color: #999;
-  font-size: 0.9em;
-  margin-top: 4px;
-}
 
 .profile-image {
   max-width: 200px;
@@ -408,7 +409,7 @@ header nav {
 }
 
 .bio-section h2 {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   font-size: 0.8em;
   font-weight: 400;
   color: #999;
@@ -437,12 +438,12 @@ header nav {
 }
 
 .embed-label {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   color: #999;
 }
 
 .embed-header a {
-  font-family: ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Monaco, "Cascadia Mono", monospace;
   color: #666;
   font-size: 1em;
 }

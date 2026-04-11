@@ -64,32 +64,33 @@ export default async function Home() {
     <>
       <div className="about-content">
         <p>
-          Hi, I&rsquo;m Trudy. I&rsquo;m a software/AI engineer in Brooklyn, NY.
-          I&rsquo;m working on <a href="https://gizmo.party" target="_blank" rel="noopener noreferrer">Gizmo</a>, a new iOS app + creative platform.
+          Hi, I&rsquo;m Trudy. I&rsquo;m a creative technologist in Brooklyn, NY.
+          I care about making AI fun + approachable for everyone.
         </p>
         <p>
-          Before that, I was at <a href="https://creativelab5.com/" target="_blank" rel="noopener noreferrer">Google Creative Lab</a> as
-          a software engineer. I worked on everything from <a href="/posts/gemini-codraw">viral open source code</a> to <a href="/posts/mainstage-demos">mainstage research demos</a> to <a href="/posts/gemini-multimodal-launch">controversial launch videos</a> to <a href="/posts/google-short-form">TikToks with 10s of millions of views (lol)</a> to <a href="/posts/gentype">leading full product releases</a>.
-          My work focused on making AI fun + approachable for everyone.
+          I&rsquo;m currently working on <a href="https://gizmo.party" target="_blank" rel="noopener noreferrer">Gizmo</a>, a new iOS app + creative platform.
+        </p>
+        <p>
+          Before that, I was at <a href="https://creativelab5.com/" target="_blank" rel="noopener noreferrer">Google Creative Lab</a>. I worked on everything from <a href="/posts/gemini-codraw">viral open source code</a> to <a href="/posts/mainstage-demos">mainstage research demos</a> to <a href="/posts/gemini-multimodal-launch">controversial launch videos</a> to <a href="/posts/google-short-form">TikToks with 10s of millions of views (lol)</a> to <a href="/posts/gentype">leading full product releases</a>.
         </p>
         <p>
           I studied <a href="https://www.eecs.mit.edu/research/computer-science/" target="_blank" rel="noopener noreferrer">computer science</a> and <a href="https://cmsw.mit.edu/about/" target="_blank" rel="noopener noreferrer">comparative media studies</a> at MIT. I also
           researched <a href="/posts/latent-lab">human/AI collaboration</a> at the MIT Media Lab.
-        </p>
-        <p>
-          I give talks on AI and creative work. I&rsquo;ve spoken at Columbia, the
+          I give talks on AI and creative work — I&rsquo;ve spoken at Columbia, the
           MIT Media Lab, CMU, USC, Parsons, and SVA.
         </p>
 
-        <nav className="link-row">
-          <a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">Are.na</a>
-          <a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">Github</a>
-          <a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">IG</a>
-          <a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">Twitter</a>
-          <a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">HF</a>
-          <a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <nav className="link-section">
+          <div className="link-row">
+            <a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">Are.na</a>
+            <a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">Github</a>
+            <a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">IG</a>
+            <a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">HF</a>
+            <a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <a href="mailto:hello@trudy.computer">hello@trudy.computer</a>
         </nav>
-        <p className="email-plain">hello@trudy.computer</p>
       </div>
 
       {photos.length > 0 && (
