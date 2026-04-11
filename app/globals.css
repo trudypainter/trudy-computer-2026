@@ -671,6 +671,10 @@ header nav {
     width: 100%;
   }
 
+  .photo-scroller {
+    padding-left: calc(50vw - 50% + 4px);
+  }
+
   .post-header {
     flex-direction: column;
     gap: 16px;

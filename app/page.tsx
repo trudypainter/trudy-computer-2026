@@ -75,6 +75,8 @@ export default async function Home() {
 
   return (
     <>
+      {/* Hidden first image to override iMessage/crawler auto-selection */}
+      <img src="/og-blank.png" alt="" width={1} height={1} style={{ position: "absolute", opacity: 0, pointerEvents: "none" }} />
       <div className="about-content">
         <p>
           Hi, I&rsquo;m Trudy. I&rsquo;m a creative engineer in Brooklyn, NY.
