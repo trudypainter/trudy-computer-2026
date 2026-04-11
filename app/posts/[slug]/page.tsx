@@ -39,41 +39,38 @@ export default async function PostPage(props: Props) {
             <p className="post-excerpt">{post.excerpt}</p>
           )}
         </div>
-        <dl className="project-meta">
-          {post.projectYear && (
-            <div className="meta-row">
-              <dt>Year</dt>
-              <dd>{post.projectYear}</dd>
-            </div>
-          )}
-          {post.projectLocation && (
-            <div className="meta-row">
-              <dt>Location</dt>
-              <dd>{post.projectLocation}</dd>
-            </div>
-          )}
-          {post.projectTags && post.projectTags.length > 0 && (
-            <div className="meta-row">
-              <dt>Tags</dt>
-              <dd>{post.projectTags.map((tag: any) => tag.name).join(", ")}</dd>
-            </div>
-          )}
-          {post.links && post.links.length > 0 && (
-            <div className="meta-row">
-              <dt>Links</dt>
-              <dd>
-                {post.links.map((link: any, i: number) => (
-                  <span key={i}>
-                    {i > 0 && ", "}
-                    <a href={link.href} target="_blank" rel="noopener noreferrer">
-                      {link.displayText}
-                    </a>
-                  </span>
+        {(() => {
+          const simpleRows: { label: string; value: React.ReactNode }[] = [];
+          if (post.projectYear) simpleRows.push({ label: "Year", value: post.projectYear });
+          if (post.projectLocation) simpleRows.push({ label: "Location", value: post.projectLocation });
+          if (post.projectTags?.length) simpleRows.push({ label: "Tags", value: post.projectTags.map((tag: any) => tag.name).join(", ") });
+          const links: { displayText: string; href: string }[] = post.links || [];
+          const totalRows = simpleRows.length + Math.max(links.length, 0);
+          if (totalRows === 0) return null;
+          const lastSimpleIndex = links.length > 0 ? -1 : simpleRows.length - 1;
+          return (
+            <table className="project-meta-table">
+              <tbody>
+                {simpleRows.map((row, i) => (
+                  <tr key={row.label} className={i === lastSimpleIndex ? "meta-row-last" : ""}>
+                    <td className="meta-label">{row.label}</td>
+                    <td className="meta-value">{row.value}</td>
+                  </tr>
                 ))}
-              </dd>
-            </div>
-          )}
-        </dl>
+                {links.map((link, i) => (
+                  <tr key={link.href} className={`${i === 0 ? "meta-row-links-start" : ""}${i === links.length - 1 ? " meta-row-last" : ""}`}>
+                    {i === 0 && (
+                      <td className="meta-label meta-label-merged" rowSpan={links.length}>Links</td>
+                    )}
+                    <td className="meta-value">
+                      <a href={link.href} target="_blank" rel="noopener noreferrer">{link.displayText}</a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          );
+        })()}
       </div>
 
       <hr />

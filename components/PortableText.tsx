@@ -83,7 +83,6 @@ const components: PortableTextComponents = {
           <div className="tweet-container">
             <iframe
               src={`https://platform.twitter.com/embed/Tweet.html?id=${tweetId}`}
-              style={{ width: "100%", minHeight: "300px", border: "none" }}
               title="Tweet"
             />
           </div>

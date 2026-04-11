@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { diatype, diatypeMono } from "./fonts";
+import ColorDebug from "../components/ColorDebug";
 
 export const metadata: Metadata = {
   title: "Trudy Painter",
@@ -20,6 +21,7 @@ export default function RootLayout({
           <Link href="/">Trudy Painter</Link>
         </header>
         <main>{children}</main>
+        {/* <ColorDebug /> */}
       </body>
     </html>
   );

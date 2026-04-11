@@ -11,6 +11,7 @@ type Project = {
   date: string;
   projectLocation?: string;
   projectYear?: string;
+  projectMonth?: string;
   projectTags?: { _id: string; name: string; slug: string }[];
 };
 
@@ -46,9 +47,20 @@ export default async function Home() {
     getArenaPhotos(),
   ]);
 
+  // Derive month from date
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const enriched = projects.map((p) => {
+    let month = "";
+    if (p.date) {
+      const d = new Date(p.date);
+      if (!isNaN(d.getTime())) month = MONTHS[d.getMonth()];
+    }
+    return { ...p, projectMonth: month };
+  });
+
   // Group projects by year
   const byYear: Record<string, Project[]> = {};
-  for (const project of projects) {
+  for (const project of enriched) {
     const year = project.projectYear || "Other";
     if (!byYear[year]) byYear[year] = [];
     byYear[year].push(project);
@@ -78,17 +90,39 @@ export default async function Home() {
           researched <a href="/posts/latent-lab">human/AI collaboration</a> at the MIT Media Lab.
         </p>
 
-        <nav className="link-section">
-          <div className="link-row">
-            <a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">Are.na</a>
-            <a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">Github</a>
-            <a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">IG</a>
-            <a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">HF</a>
-            <a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-          <a href="mailto:hello@trudy.computer">hello@trudy.computer</a>
-        </nav>
+        <table className="contact-table">
+          <tbody>
+            <tr className="contact-row">
+              <td className="contact-label" rowSpan={7}>Find Me</td>
+              <td className="contact-name"><a href="mailto:hello@trudy.computer">Email</a></td>
+              <td className="contact-value"><a href="mailto:hello@trudy.computer">hello@trudy.computer</a></td>
+            </tr>
+            <tr className="contact-row">
+              <td className="contact-name"><a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">Are.na</a></td>
+              <td className="contact-value"><a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">are.na/trudy-painter</a></td>
+            </tr>
+            <tr className="contact-row">
+              <td className="contact-name"><a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">Github</a></td>
+              <td className="contact-value"><a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">trudypainter</a></td>
+            </tr>
+            <tr className="contact-row">
+              <td className="contact-name"><a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">IG</a></td>
+              <td className="contact-value"><a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">@bionicpinkytoe</a></td>
+            </tr>
+            <tr className="contact-row">
+              <td className="contact-name"><a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">Twitter</a></td>
+              <td className="contact-value"><a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">@trudypainter</a></td>
+            </tr>
+            <tr className="contact-row">
+              <td className="contact-name"><a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">HF</a></td>
+              <td className="contact-value"><a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">trudy</a></td>
+            </tr>
+            <tr className="contact-row contact-row-last">
+              <td className="contact-name"><a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">LinkedIn</a></td>
+              <td className="contact-value"><a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">trudy-painter</a></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       {photos.length > 0 && (
