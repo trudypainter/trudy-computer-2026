@@ -20,6 +20,15 @@
   padding: 0;
 }
 
+html {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI",
     Helvetica, Arial, sans-serif;
@@ -30,12 +39,13 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 main {
   max-width: 640px;
   margin: 0 auto;
-  padding: 0 20px 80px;
+  padding: 0 0 80px;
   transform: scaleX(var(--type-stretch));
   transform-origin: center top;
 }
@@ -125,7 +135,7 @@ code {
 header {
   max-width: 640px;
   margin: 0 auto;
-  padding: 40px 20px 40px;
+  padding: 40px 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -191,10 +201,13 @@ header nav {
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 8px;
+  /* Undo parent scaleX then break out to full viewport */
+  transform: scaleX(calc(1 / var(--type-stretch)));
+  transform-origin: center top;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
+  padding-left: 0;
+  padding-right: 0;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -444,6 +457,11 @@ header nav {
 .meta-row-links-start .meta-label-merged,
 .meta-row-links-start .meta-value {
   border-top: 1px solid var(--color-border-heavy);
+}
+
+.project-meta-table tr.meta-row-before-links td.meta-label,
+.project-meta-table tr.meta-row-before-links td.meta-value {
+  border-bottom: none;
 }
 
 .project-meta-table tr:has(.meta-value a):hover .meta-label,

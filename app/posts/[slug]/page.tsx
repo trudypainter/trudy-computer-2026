@@ -52,7 +52,7 @@ export default async function PostPage(props: Props) {
             <table className="project-meta-table">
               <tbody>
                 {simpleRows.map((row, i) => (
-                  <tr key={row.label} className={i === lastSimpleIndex ? "meta-row-last" : ""}>
+                  <tr key={row.label} className={`${i === lastSimpleIndex ? "meta-row-last" : ""}${i === simpleRows.length - 1 && links.length > 0 ? " meta-row-before-links" : ""}`}>
                     <td className="meta-label">{row.label}</td>
                     <td className="meta-value">{row.value}</td>
                   </tr>
