@@ -36,6 +36,9 @@ export default function RootLayout({
       <body>
         <header>
           <Link href="/"><span className="header-icon">⊞</span> Trudy Painter</Link>
+          <nav>
+            <Link href="/about">About</Link>
+          </nav>
         </header>
         <main>{children}</main>
         {/* <ColorDebug /> */}
