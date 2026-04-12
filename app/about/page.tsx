@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 const PhotoScroller = dynamic(() => import("@/components/PhotoScroller"), { ssr: false });
 const LinkMatrix = dynamic(() => import("@/components/LinkMatrix"), { ssr: false });
 
+
 async function getArenaPhotos() {
   const token = process.env.ARENA_ACCESS_TOKEN;
   if (!token) return [];

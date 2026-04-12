@@ -513,7 +513,12 @@ header nav {
 }
 
 .about-text p {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.about-text p:first-child {
+  /* Cancel half-leading so text top aligns with image top */
+  margin-top: -0.175em;
 }
 
 .about-photos {
