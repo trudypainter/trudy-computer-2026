@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 const PhotoScroller = dynamic(() => import("@/components/PhotoScroller"), { ssr: false });
+const LinkMatrix = dynamic(() => import("@/components/LinkMatrix"), { ssr: false });
 
 async function getArenaPhotos() {
   const token = process.env.ARENA_ACCESS_TOKEN;
@@ -34,59 +35,31 @@ export default async function About() {
     <>
       {/* Hidden first image to override iMessage/crawler auto-selection */}
       <img src="/og-blank.png" alt="" width={1} height={1} style={{ position: "absolute", opacity: 0, pointerEvents: "none" }} />
-      <div className="about-content">
-        <p>
-          Hi, I&rsquo;m Trudy. I&rsquo;m a creative engineer in Brooklyn, NY.
-          I care about making AI fun + approachable for everyone.
-        </p>
-        <p>
-          I&rsquo;m currently working on <a href="https://gizmo.party" target="_blank" rel="noopener noreferrer">Gizmo</a>, a new iOS app + creative platform.
-        </p>
-        <p>
-          Before that, I was at <a href="https://creativelab5.com/" target="_blank" rel="noopener noreferrer">Google Creative Lab</a>. I worked on everything from <a href="/posts/gemini-codraw">viral open source code</a> to <a href="/posts/mainstage-demos">mainstage research demos</a> to <a href="/posts/gemini-multimodal-launch">controversial launch videos</a> to <a href="/posts/google-short-form">TikToks with 10s of millions of views (lol)</a> to <a href="/posts/gentype">leading full product releases</a>.
-        </p>
-        <p>
-          I studied <a href="https://www.eecs.mit.edu/research/computer-science/" target="_blank" rel="noopener noreferrer">computer science</a> and <a href="https://cmsw.mit.edu/about/" target="_blank" rel="noopener noreferrer">comparative media studies</a> at MIT. I also
-          published <a href="/posts/latent-lab">AI research</a> through the MIT Media Lab.
-        </p>
 
-        <table className="contact-table">
-          <tbody>
-            <tr className="contact-row">
-              <td className="contact-label" rowSpan={7}>Find Me</td>
-              <td className="contact-name"><a href="mailto:hello@trudy.computer">Email</a></td>
-              <td className="contact-value"><a href="mailto:hello@trudy.computer">hello@trudy.computer</a></td>
-            </tr>
-            <tr className="contact-row">
-              <td className="contact-name"><a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">Are.na</a></td>
-              <td className="contact-value"><a href="https://www.are.na/trudy-painter" target="_blank" rel="noopener noreferrer">are.na/trudy-painter</a></td>
-            </tr>
-            <tr className="contact-row">
-              <td className="contact-name"><a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">Github</a></td>
-              <td className="contact-value"><a href="https://github.com/trudypainter" target="_blank" rel="noopener noreferrer">trudypainter</a></td>
-            </tr>
-            <tr className="contact-row">
-              <td className="contact-name"><a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">IG</a></td>
-              <td className="contact-value"><a href="https://instagram.com/bionicpinkytoe" target="_blank" rel="noopener noreferrer">@bionicpinkytoe</a></td>
-            </tr>
-            <tr className="contact-row">
-              <td className="contact-name"><a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">Twitter</a></td>
-              <td className="contact-value"><a href="https://x.com/trudypainter" target="_blank" rel="noopener noreferrer">@trudypainter</a></td>
-            </tr>
-            <tr className="contact-row">
-              <td className="contact-name"><a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">HF</a></td>
-              <td className="contact-value"><a href="https://huggingface.co/Trudy" target="_blank" rel="noopener noreferrer">trudy</a></td>
-            </tr>
-            <tr className="contact-row contact-row-last">
-              <td className="contact-name"><a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">LinkedIn</a></td>
-              <td className="contact-value"><a href="https://www.linkedin.com/in/trudy-painter/" target="_blank" rel="noopener noreferrer">trudy-painter</a></td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="about-content about-layout-g">
+        <div className="about-image">
+          <img src="/trudy-headshot.webp" alt="Trudy Painter" />
+        </div>
+        <div className="about-text">
+          <p>
+            Hi, I&rsquo;m Trudy. I&rsquo;m a creative engineer in Brooklyn, NY.
+            I care about making AI fun + approachable for everyone.
+          </p>
+          <p>
+            I&rsquo;m currently working on <a href="https://gizmo.party" target="_blank" rel="noopener noreferrer">Gizmo</a>, a new iOS app + creative platform.
+          </p>
+          <p>
+            Before that, I was at <a href="https://creativelab5.com/" target="_blank" rel="noopener noreferrer">Google Creative Lab</a>. I worked on everything from <a href="/posts/gemini-codraw">viral open source code</a> to <a href="/posts/mainstage-demos">mainstage research demos</a> to <a href="/posts/gemini-multimodal-launch">controversial launch videos</a> to <a href="/posts/google-short-form">TikToks with 10s of millions of views (lol)</a> to <a href="/posts/gentype">leading full product releases</a>.
+          </p>
+          <p>
+            I studied <a href="https://www.eecs.mit.edu/research/computer-science/" target="_blank" rel="noopener noreferrer">computer science</a> and <a href="https://cmsw.mit.edu/about/" target="_blank" rel="noopener noreferrer">comparative media studies</a> at MIT. I also
+            published <a href="/posts/latent-lab">AI research</a> through the MIT Media Lab.
+          </p>
+        </div>
       </div>
 
       {photos.length > 0 && (
-        <section className="photo-scroller-section">
+        <section className="photo-scroller-section about-photos">
           <div className="photo-scroller-header">
             <h2>
               <a
@@ -101,6 +74,12 @@ export default async function About() {
           <PhotoScroller initialPhotos={photos} />
         </section>
       )}
+
+      <section className="about-contact-section">
+        <h2>CONTACT</h2>
+        <p>I mean it when I say I love to chat... <a href="mailto:hello@trudy.computer">hello@trudy.computer</a></p>
+        <LinkMatrix />
+      </section>
     </>
   );
 }
