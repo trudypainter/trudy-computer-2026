@@ -47,7 +47,7 @@ export default async function Home() {
       {/* Hidden first image to override iMessage/crawler auto-selection */}
       <img src="/og-blank.png" alt="" width={1} height={1} style={{ position: "absolute", opacity: 0, pointerEvents: "none" }} />
 
-      <p className="home-tagline">Trudy is a creative engineer, building <a href="https://gizmo.party" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>Gizmo</a>.</p>
+      <p className="home-tagline">Trudy is working on <a href="https://apps.apple.com/app/id6761221765" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>Pocket</a>, a new creative platform for making gizmos.</p>
 
       <ProjectArchive
         yearGroups={sortedYears.map((year) => ({
