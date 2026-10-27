@@ -47,10 +47,10 @@ export default async function About() {
             I care about making AI fun + approachable for everyone.
           </p>
           <p>
-            I&rsquo;m currently working on <a href="https://gizmo.party" target="_blank" rel="noopener noreferrer">Gizmo</a>, a new iOS app + creative platform.
+            I&rsquo;m currently working on <a href="https://apps.apple.com/app/id6761221765" target="_blank" rel="noopener noreferrer">Pocket</a>, a creative platform to make gizmos. Note: the Pocket team was formerly building <a href="https://atmasciences.com/" target="_blank" rel="noopener noreferrer">Gizmo</a> before we <a href="https://www.businessinsider.com/meta-rolls-out-new-vibe-coding-social-app-pocket-us-2026-8" target="_blank" rel="noopener noreferrer">joined Meta Super Intelligence</a>.
           </p>
           <p>
-            Before that, I was at <a href="https://creativelab5.com/" target="_blank" rel="noopener noreferrer">Google Creative Lab</a>. I worked on everything from <a href="/posts/gemini-codraw">viral open source code</a> to <a href="/posts/mainstage-demos">mainstage research demos</a> to <a href="/posts/gemini-multimodal-launch">controversial launch videos</a> to <a href="/posts/google-short-form">TikToks with 10s of millions of views (lol)</a> to <a href="/posts/gentype">leading full product releases</a>.
+            Before that, I was at <a href="https://creativelab5.com/" target="_blank" rel="noopener noreferrer">Google Creative Lab</a>. I worked on everything from <a href="/posts/gentype">leading full product releases</a> to <a href="/posts/gemini-codraw">viral open source code</a> to <a href="/posts/mainstage-demos">mainstage research demos</a> to <a href="/posts/gemini-multimodal-launch">controversial launch videos</a> to <a href="/posts/google-short-form">TikToks with 10s of millions of views (lol)</a>.
           </p>
           <p>
             I studied <a href="https://www.eecs.mit.edu/research/computer-science/" target="_blank" rel="noopener noreferrer">computer science</a> and <a href="https://cmsw.mit.edu/about/" target="_blank" rel="noopener noreferrer">comparative media studies</a> at MIT. I also
