@@ -69,5 +69,7 @@ export const gizmosQuery = `
     title,
     url,
     "videoUrl": video.asset->url,
+    "posterUrl": poster.asset->url,
+    hasBorder,
   }
 `;
