@@ -13,7 +13,7 @@ export default function GizmoRow({ gizmos }: { gizmos: Gizmo[] }) {
       <div className="photo-scroller-header">
         <h2>
           <a href="https://www.madewithpocket.com/trudy" target="_blank" rel="noopener noreferrer">
-            Gizmos on Pocket ↗
+            My gizmos on Pocket ↗
           </a>
         </h2>
       </div>
