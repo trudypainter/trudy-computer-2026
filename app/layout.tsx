@@ -6,17 +6,17 @@ import ColorDebug from "../components/ColorDebug";
 
 export const metadata: Metadata = {
   title: "Trudy Painter",
-  description: "Creative engineer, building Gizmo",
+  description: "Creative engineer, building Pocket",
   openGraph: {
     title: "Trudy Painter",
-    description: "Creative engineer, building Gizmo",
+    description: "Creative engineer, building Pocket",
     type: "website",
     images: [{ url: "/og-blank.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary",
     title: "Trudy Painter",
-    description: "Creative engineer, building Gizmo",
+    description: "Creative engineer, building Pocket",
     images: ["/og-blank.png"],
   },
   robots: {
