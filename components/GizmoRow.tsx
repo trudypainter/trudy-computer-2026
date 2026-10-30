@@ -46,6 +46,24 @@ export default function GizmoRow({ gizmos }: { gizmos: Gizmo[] }) {
       { threshold: 0.25 }
     );
 
+    // Start buffering one card past each edge of the row, so a card scrolling
+    // into view already has frames ready and doesn't flash its poster.
+    const card = row.firstElementChild as HTMLElement | null;
+    const lookahead = card ? card.offsetWidth + parseFloat(getComputedStyle(row).columnGap || "0") : 0;
+    const preloader = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const video = entry.target as HTMLVideoElement;
+          video.preload = "auto";
+          // load() restarts a video, so only nudge ones that haven't started loading or playing.
+          if (video.paused && video.readyState === 0) video.load();
+          preloader.unobserve(video);
+        }
+      },
+      { root: row, rootMargin: `0px ${lookahead}px` }
+    );
+
     // On the first touch, play every video inside the gesture. iOS then lets the
     // page control each one freely, so off-screen ones are paused right away and
     // the observer above can start them as they scroll into view.
@@ -70,11 +88,13 @@ export default function GizmoRow({ gizmos }: { gizmos: Gizmo[] }) {
     for (const video of videos) {
       video.muted = true; // React doesn't always reflect the muted prop; iOS requires it for play()
       observer.observe(video);
+      preloader.observe(video);
     }
     for (const type of GESTURE_EVENTS) row.addEventListener(type, unlock, { passive: true });
 
     return () => {
       observer.disconnect();
+      preloader.disconnect();
       removeListeners();
     };
   }, [gizmos]);
