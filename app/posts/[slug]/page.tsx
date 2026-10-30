@@ -5,6 +5,9 @@ import { client } from "@/sanity/client";
 import { postQuery, postSlugsQuery } from "@/sanity/queries";
 import CustomPortableText from "@/components/PortableText";
 
+// Re-fetch from Sanity at most once a minute so content edits go live without a redeploy.
+export const revalidate = 60;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };

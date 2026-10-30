@@ -2,6 +2,9 @@ import { client } from "@/sanity/client";
 import { allProjectsQuery } from "@/sanity/queries";
 import ProjectArchive from "@/components/ProjectArchive";
 
+// Re-fetch from Sanity at most once a minute so content edits go live without a redeploy.
+export const revalidate = 60;
+
 type Project = {
   _id: string;
   title: string;
