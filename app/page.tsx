@@ -1,6 +1,7 @@
 import { client } from "@/sanity/client";
-import { allProjectsQuery } from "@/sanity/queries";
+import { allProjectsQuery, gizmosQuery } from "@/sanity/queries";
 import ProjectArchive from "@/components/ProjectArchive";
+import GizmoRow from "@/components/GizmoRow";
 
 // Re-fetch from Sanity at most once a minute so content edits go live without a redeploy.
 export const revalidate = 60;
@@ -18,7 +19,10 @@ type Project = {
 };
 
 export default async function Home() {
-  const projects = await client.fetch<Project[]>(allProjectsQuery);
+  const [projects, gizmos] = await Promise.all([
+    client.fetch<Project[]>(allProjectsQuery),
+    client.fetch(gizmosQuery),
+  ]);
 
   // Derive month from date
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -51,6 +55,8 @@ export default async function Home() {
       <img src="/og-blank.png" alt="" width={1} height={1} style={{ position: "absolute", opacity: 0, pointerEvents: "none" }} />
 
       <p className="home-tagline">Trudy is working on <a href="https://apps.apple.com/app/id6761221765" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>Pocket</a>, a new creative platform for making gizmos.</p>
+
+      <GizmoRow gizmos={gizmos} />
 
       <ProjectArchive
         yearGroups={sortedYears.map((year) => ({

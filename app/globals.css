@@ -212,6 +212,46 @@ header nav {
   scrollbar-width: none;
 }
 
+.gizmo-section {
+  margin: 32px 0 40px;
+}
+
+/* Same full-bleed horizontal scroll as .photo-scroller */
+.gizmo-row {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  transform: scaleX(calc(1 / var(--type-stretch)));
+  transform-origin: center top;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50% + 6px);
+  padding-right: 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.gizmo-row::-webkit-scrollbar {
+  display: none;
+}
+
+.gizmo-card {
+  flex-shrink: 0;
+  width: 154px;
+  aspect-ratio: 7 / 10;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.gizmo-card video {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+
 .photo-scroller::-webkit-scrollbar {
   display: none;
 }
@@ -750,6 +790,14 @@ header nav {
 
   .photo-scroller {
     padding-left: calc(50vw - 50% + 4px);
+  }
+
+  .gizmo-row {
+    padding-left: calc(50vw - 50% + 4px);
+  }
+
+  .gizmo-card {
+    width: 130px;
   }
 
   .post-header {
