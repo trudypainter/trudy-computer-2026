@@ -238,6 +238,7 @@ header nav {
 
 .gizmo-card {
   flex-shrink: 0;
+  position: relative;
   width: 154px;
   aspect-ratio: 7 / 10;
   border-radius: 18px;
@@ -250,6 +251,16 @@ header nav {
   height: 100%;
   margin: 0;
   object-fit: cover;
+}
+
+/* Thin outline drawn above the video, for mostly white previews */
+.gizmo-card-bordered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border);
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 /* Hide Safari's play overlay when autoplay is blocked; the poster shows instead */
