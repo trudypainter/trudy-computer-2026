@@ -1,9 +1,51 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 type Gizmo = {
   _id: string;
   title: string;
   url: string;
   videoUrl: string;
+  posterUrl?: string;
 };
+
+function GizmoVideo({ gizmo }: { gizmo: Gizmo }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  // Play only while on screen. If the browser blocks autoplay (e.g. iOS Low
+  // Power Mode), play() rejects and the poster stays up as a still thumbnail.
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    video.muted = true; // React doesn't always reflect the muted prop; iOS requires it for play()
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={gizmo.videoUrl}
+      poster={gizmo.posterUrl}
+      loop
+      muted
+      playsInline
+      preload="none"
+      aria-label={gizmo.title}
+    />
+  );
+}
 
 export default function GizmoRow({ gizmos }: { gizmos: Gizmo[] }) {
   if (!gizmos.length) return null;
@@ -27,7 +69,7 @@ export default function GizmoRow({ gizmos }: { gizmos: Gizmo[] }) {
             className="gizmo-card"
             title={gizmo.title}
           >
-            <video src={gizmo.videoUrl} autoPlay loop muted playsInline preload="metadata" aria-label={gizmo.title} />
+            <GizmoVideo gizmo={gizmo} />
           </a>
         ))}
       </div>

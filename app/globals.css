@@ -252,6 +252,14 @@ header nav {
   object-fit: cover;
 }
 
+/* Hide Safari's play overlay when autoplay is blocked; the poster shows instead */
+.gizmo-card video::-webkit-media-controls,
+.gizmo-card video::-webkit-media-controls-start-playback-button,
+.gizmo-card video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .photo-scroller::-webkit-scrollbar {
   display: none;
 }
