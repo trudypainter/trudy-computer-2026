@@ -62,3 +62,12 @@ export const aboutPageQuery = `
     }
   }
 `;
+
+export const gizmosQuery = `
+  *[_type == "gizmo" && defined(video.asset)] | order(order asc, _createdAt asc) {
+    _id,
+    title,
+    url,
+    "videoUrl": video.asset->url,
+  }
+`;
