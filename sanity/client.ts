@@ -1,7 +1,10 @@
 import { createClient } from "@sanity/client";
 
-// Local draft preview: with SANITY_TOKEN set in dev, fetch drafts instead of published content.
-const previewDrafts = process.env.NODE_ENV === "development" && !!process.env.SANITY_TOKEN;
+// Draft preview: fetch drafts instead of published content locally (dev + SANITY_TOKEN)
+// and on staging.trudy.computer (SANITY_PREVIEW_DRAFTS=true, set only for the staging branch).
+const previewDrafts =
+  !!process.env.SANITY_TOKEN &&
+  (process.env.NODE_ENV === "development" || process.env.SANITY_PREVIEW_DRAFTS === "true");
 
 const baseClient = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,

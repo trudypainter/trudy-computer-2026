@@ -16,6 +16,11 @@ const nextConfig = {
       },
     ],
   },
+  // Keep staging and other non-production deployments out of search results.
+  async headers() {
+    if (process.env.VERCEL_ENV === "production") return [];
+    return [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
+  },
 };
 
 module.exports = nextConfig;
